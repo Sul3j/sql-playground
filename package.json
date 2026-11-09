@@ -1,0 +1,32 @@
+{
+  "name": "sql-playground",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "db:start": "docker compose up -d --wait",
+    "db:stop": "docker compose down",
+    "dev": "concurrently -k -n api,web -c blue,green \"node --watch server/index.js\" \"vite\"",
+    "build": "vite build",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "@codemirror/lang-sql": "^6.8.0",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.34.0",
+    "@uiw/react-codemirror": "^4.23.6",
+    "express": "^4.22.3",
+    "lucide-react": "^0.460.0",
+    "mysql2": "^3.24.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.5",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11"
+  }
+}
